@@ -8,7 +8,7 @@ fp_correct = open('./results/crnn-max-all-features_correct.txt','wb')
 fp_wrong = open('./results/crnn-max-all-features_wrong.txt','wb')
 # fp = open('./results/attention_weights.txt','wb')
 
-
+'''
 with open('./i2b2/i2b2-train2.pickle', 'rb') as handle:
 	W = pickle.load(handle)
 	Y_onehot = pickle.load(handle)
@@ -17,15 +17,15 @@ with open('./i2b2/i2b2-train2.pickle', 'rb') as handle:
 	rev_word_list = pickle.load(handle)
 	label_dict = pickle.load(handle)
 	rev_label_dict = pickle.load(handle)
-
-# with open('./ddi/ddi-train.pickle', 'rb') as handle:
-# 	W = pickle.load(handle)
-# 	Y_onehot = pickle.load(handle)
-# 	wv = pickle.load(handle)
-# 	word_list = pickle.load(handle)
-# 	rev_word_list = pickle.load(handle)
-# 	label_dict = pickle.load(handle)
-# 	rev_label_dict = pickle.load(handle)
+'''
+with open('./ddi/ddi-train.pickle', 'rb') as handle:
+	W = pickle.load(handle)
+	Y_onehot = pickle.load(handle)
+	wv = pickle.load(handle)
+	word_list = pickle.load(handle)
+	rev_word_list = pickle.load(handle)
+	label_dict = pickle.load(handle)
+	rev_label_dict = pickle.load(handle)
 
 per = 0.8
 
@@ -33,6 +33,9 @@ num_total = len(W)
 seq_len = len(W[0])
 word_dict_size = len(word_list)
 label_dict_size = len(label_dict)
+
+# SC: The following is probably done for the first dataset only, as described
+# in the paper # SC
 
 # Splitting training set into train and validation set
 # W_train = W[:int(per*num_total)+1]

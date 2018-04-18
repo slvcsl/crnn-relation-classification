@@ -1,0 +1,32 @@
+These are some personal notes I'm taking while trying to understand the code.
+
+First of all, the code is designed to work on 2 different datasets: 
+- i2b2-2010 (which we don't care about) and
+- SemEval 2013 (which is ours)
+
+The file *create_partion.py* seems to be only related to the first dataset.
+
+ The same applies to the *preprocess.py*. 
+ However, this is probably where the ddi-train.pickle file should be created.
+ In fact, this is what seems to be done with the other dataset.
+ 
+ In the *svm_ddi.py* they actually train a svm on the problem! Here, they 
+ actually perform the preprocessing described in the paper and this kind of 
+ things. Not sure why they train the SVM tho.
+ 
+ The file *svm-ib2b2.py* is obviously the counterpart for the other dataset.
+ 
+ *main.py*
+ - The first two lines, which seem to be never used (only in commented code)
+rose an error, so I created the ./results folder. Now it works. Not sure why
+
+- What's the ./ddi/ddi-train.pickle file?
+pickle (https://docs.python.org/2/library/pickle.html , 
+https://youtu.be/Pl4Hp8qwwes) serialized the object
+(looks like it is frequently done with datasets for performances).
+So I suppose the file is serialized in some custom format (it then reads in that 
+format in the main).
+This file might probably have been created in some custom file as the 
+*preprocess.py*, where something similar seems to have been done for the other
+dataset. The problem is: what is th exact format???
+Probably we should study the *preprocess.py* and reprobuce the same format?
